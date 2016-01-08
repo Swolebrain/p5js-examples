@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  </head>
+  <body>
+  
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/p5.js"></script>
+    <script>
+      var w, h;
+      function setup() {
+        w = window.innerWidth*.98;
+        h = window.innerHeight*.97;
+        createCanvas(w, h);
+      }
+
+      function draw() {
+        noFill();
+        drawFractal(w/2, h/2, w*.12);
+        //ellipse(w/2, h/2, w*.2, w*.2);
+      }
+      function drawFractal(x, y, rad){
+        if (rad <= 2) return;
+        ellipse(x, y, rad*2, rad*2);
+        drawFractal(x-rad, y, rad/2);
+        drawFractal(x+rad, y, rad/2);
+        drawFractal(x, y-rad, rad/2);
+        drawFractal(x, y+rad, rad/2);
+      }
+    </script>
+  </body>
+</html>

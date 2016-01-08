@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  </head>
+  <body>
+  
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/p5.js"></script>
+    <script>
+      function setup() {
+        createCanvas(window.innerWidth*.99, window.innerHeight*.99);
+      }
+
+      function draw() {
+        if (mouseIsPressed) {
+          fill(0);
+        } else {
+          fill(255);
+        }
+        drawStar(mouseX, mouseY, 50);
+      }
+      function drawStar(x,y, r){ //r is radius of circle that inscribes the star
+        var hyp = 4*Math.sin(0.314159)*r;
+        beginShape();
+        
+        //top:
+        vertex(x, y);
+        //bottom left
+        vertex(x - Math.sin(0.314159)*2*r, y + Math.cos(0.314159)*2*r);
+        //top right
+        vertex(x + hyp*Math.cos(0.628319), y+Math.sin(0.628319)*hyp);
+        //top left
+        vertex(x - hyp*Math.cos(0.628319), y+Math.sin(0.628319)*hyp);
+        //bottom right
+        vertex(x + Math.sin(0.314159)*2*r, y + Math.cos(0.314159)*2*r);
+        endShape(CLOSE);
+      }
+    </script>
+  </body>
+</html>
