@@ -20,7 +20,7 @@
         //ellipse(w/2, h/2, w*.2, w*.2);
       }
       function drawFractal(x, y, rad){
-        if (rad <= 2) return;
+        if (rad <= 3) return;
         ellipse(x, y, rad*2, rad*2);
         drawFractal(x-rad, y, rad/2);
         drawFractal(x+rad, y, rad/2);
